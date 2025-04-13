@@ -7,7 +7,7 @@ var box_pos : Vector2
 var box_size : Vector2 
 
 func _ready() -> void:
-	box_pos = Vector2((get_window().size.x - box_width) / 2, (get_window().size.y - box_height) / 1.5)
+	box_pos = Vector2((get_window().size.x - box_width) / 2, (get_window().size.y - box_height) / 1.7)
 	box_size = Vector2(box_width, box_height)
 
 func _draw() -> void:

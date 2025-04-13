@@ -1,4 +1,65 @@
-[gd_scene format=3 uid="uid://bdx7no40aup66"]
+[gd_scene load_steps=11 format=4 uid="uid://bdx7no40aup66"]
+
+[sub_resource type="Gradient" id="Gradient_5xyro"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k5de2"]
+gradient = SubResource("Gradient_5xyro")
+width = 100
+height = 25
+
+[sub_resource type="Gradient" id="Gradient_efote"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vow1y"]
+gradient = SubResource("Gradient_efote")
+width = 100
+height = 25
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_5xyro"]
+_data = PackedByteArray("AAADAAUAAAABAAAAeAAAADwAAAAiAQAAUklGRhoBAABXRUJQVlA4TA0BAAAvd8AOABcgEEgyX3ckgUCSP91GiwWT2eRv1zn/gZ0b4Mi23bb58ztwFXIO+3lQqFBquIo/3MP3uFQOb5uEAGWpjOj/BOCi1zzp5ENOOnqyqcxIzkgqyYYinJHUjAVJgCcAXQRCVPME4BjohVQ0O9G0J/+p81RCb3OjzMDMzbDPmblJkYi5GDQn5pKbVIyq4mkMFbumqikTqZhBJYG/B6hx35akDDzXIUSgZOqnGbmc4ney7vG3ZN8W/MWfnsqBGGJIBaMYyrQm4TSGnxP5OYWahIlmzNwMH1XrRS51njp4zfRHJEdvOwAVo+YQgGNoJhSpuSRobyciMqPKjGRHsqEIZcemd9In2ponneCiAQA=")
+size_override = Vector2(120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5de2"]
+atlas = SubResource("PortableCompressedTexture2D_5xyro")
+region = Rect2(0, 0, 120, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efote"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5de2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_k5de2"]
+_data = PackedByteArray("AAADAAUAAAABAAAAeAAAADwAAAAOAQAAUklGRgYBAABXRUJQVlA4TPoAAAAvd8AOABcgEEgyX3ckgUCSP91GiwWT2eRv1zn/gZ0b4Ma2Hbd5g0hkH95Qjx8Hgwixq/jjHqjYGxe9NgmB/N7DiP5PAL/0JNd8A9dHp/SHMW17mCRFmCTFhhduH1BIcoSR5E1Dqdx8hdUpBRRe9FS5aBhhl0zd1kqHwgCr9MgjEBLDqWYTyghg2ASkEUBiQCViCB5npB2r2lK/p9pQbjxMVpF0DJ833B6B7JS+P0mDRwCurPJJY1P2MTrJXIDilHqfM9p6G3ZEDE0XcQdsQgu5q3Q+KRxgmfHKChR2MN7gZTMBL+R0BcCLAqAIk6QIvEhqOfpfaZJr5pcG")
+size_override = Vector2(120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efote"]
+atlas = SubResource("PortableCompressedTexture2D_k5de2")
+region = Rect2(0, 0, 120, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vow1y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efote")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -22,12 +83,11 @@ anchors_preset = 0
 
 [node name="HP" type="Label" parent="HealthBar"]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -11.5
-offset_right = 25.0
-offset_bottom = 13.5
+anchors_preset = -1
+offset_left = 235.0
+offset_top = 420.0
+offset_right = 260.0
+offset_bottom = 445.0
 grow_vertical = 2
 text = "HP"
 
@@ -38,10 +98,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 25.0
-offset_top = -11.5
-offset_right = 45.0
-offset_bottom = 13.5
+offset_left = 416.0
+offset_top = 420.0
+offset_right = 436.0
+offset_bottom = 445.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "20"
@@ -53,10 +113,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -59.0
-offset_top = -11.5
-offset_right = -50.0
-offset_bottom = 13.5
+offset_left = 400.0
+offset_top = 421.0
+offset_right = 420.0
+offset_bottom = 444.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "/"
@@ -68,21 +128,24 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -45.0
-offset_top = -11.5
-offset_right = -25.0
-offset_bottom = 13.5
+offset_left = 372.0
+offset_top = 420.0
+offset_right = 392.0
+offset_bottom = 445.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "20"
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
-offset_left = 29.0
-offset_top = 10.0
-offset_right = 129.0
-offset_bottom = 35.0
+layout_mode = 0
+offset_left = 265.0
+offset_top = 420.0
+offset_right = 365.0
+offset_bottom = 445.0
 max_value = 20.0
 value = 20.0
+texture_under = SubResource("GradientTexture2D_k5de2")
+texture_progress = SubResource("GradientTexture2D_vow1y")
 tint_under = Color(1, 0, 0, 1)
 tint_progress = Color(1, 1, 0, 1)
 
@@ -91,12 +154,59 @@ offset_left = 20.0
 offset_top = 460.0
 offset_right = 140.0
 offset_bottom = 520.0
+flat = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fight"]
+texture_filter = 1
+position = Vector2(60, 30)
+scale = Vector2(1.0207, 1.03333)
+sprite_frames = SubResource("SpriteFrames_efote")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "C:/Users/XrRyz/OneDrive/Programmation/GodotGames/doortal/Art/Player_sprites/fight_button.ase"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "3423f37f5284ad98d001a79358b6745f"
 
 [node name="Act" type="Button" parent="."]
 offset_left = 180.0
 offset_top = 460.0
 offset_right = 300.0
 offset_bottom = 520.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Act"]
+texture_filter = 1
+position = Vector2(60, 30)
+scale = Vector2(0.995833, 1.025)
+sprite_frames = SubResource("SpriteFrames_vow1y")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "C:/Users/XrRyz/OneDrive/Programmation/GodotGames/doortal/Art/Player_sprites/act_button.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "129366401a2b93d205f1ca396baafa8e"
 
 [node name="Item" type="Button" parent="."]
 offset_left = 340.0
