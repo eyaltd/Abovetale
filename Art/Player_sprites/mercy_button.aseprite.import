@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bjfnniwnj6lak"
+path="res://.godot/imported/mercy_button.aseprite-948c737e5e77a44bb39b69a0a6d0f754.res"
+
+[deps]
+
+source_file="res://Art/Player_sprites/mercy_button.aseprite"
+dest_files=["res://.godot/imported/mercy_button.aseprite-948c737e5e77a44bb39b69a0a6d0f754.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bkx15ssfq52qp"
+path="res://.godot/imported/act_button.aseprite-20ca9ebee691c19c114e6dae3ee2a709.res"
+
+[deps]
+
+source_file="res://Art/Player_sprites/act_button.aseprite"
+dest_files=["res://.godot/imported/act_button.aseprite-20ca9ebee691c19c114e6dae3ee2a709.res"]
+
+[params]
+

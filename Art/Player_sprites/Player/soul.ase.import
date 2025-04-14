@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c4unolugy3uoi"
+path="res://.godot/imported/soul.ase-d3afc783b09d49da5a2764691d4707f1.res"
+
+[deps]
+
+source_file="res://Art/Player_sprites/Player/soul.ase"
+dest_files=["res://.godot/imported/soul.ase-d3afc783b09d49da5a2764691d4707f1.res"]
+
+[params]
+

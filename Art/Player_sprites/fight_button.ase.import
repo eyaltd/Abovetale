@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dbpaenvmhhchy"
+path="res://.godot/imported/fight_button.ase-f4969ebac04762f415bd722ef13d6c0e.res"
+
+[deps]
+
+source_file="res://Art/Player_sprites/fight_button.ase"
+dest_files=["res://.godot/imported/fight_button.ase-f4969ebac04762f415bd722ef13d6c0e.res"]
+
+[params]
+

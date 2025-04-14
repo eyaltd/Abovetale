@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c0t7q4fy8dgpj"
+path="res://.godot/imported/Item_button.ase-9231e85fb3be906322177e7be7580747.res"
+
+[deps]
+
+source_file="res://Art/Player_sprites/HUD/hud_buttons/Item_button.ase"
+dest_files=["res://.godot/imported/Item_button.ase-9231e85fb3be906322177e7be7580747.res"]
+
+[params]
+
