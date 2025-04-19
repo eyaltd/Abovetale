@@ -1,10 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://bndl42e750ka1"]
+[gd_scene load_steps=13 format=4 uid="uid://bndl42e750ka1"]
 
 [ext_resource type="PackedScene" uid="uid://cpa67vjdcvao2" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b4g38jatl5pat" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://cxl0q70f1ps1m" path="res://box_area.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bdx7no40aup66" path="res://HUD.tscn" id="3_h2yge"]
+[ext_resource type="FontFile" uid="uid://280k3mrfv2jf" path="res://Font/8bitoperator_JVE/8bitoperator_jve.ttf" id="5_lquwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(20, 175.002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(174.999, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(20, 174.994)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(175.982, 20)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_xxqia"]
+_data = PackedByteArray("AAADAAUAAAABAAAAdQAAAA8AAABuAAAAUklGRmYAAABXRUJQVlA4TFkAAAAvdIADAA8w//M///MfeHBQ27YSPTzGi/Ka8aNQ0V0ODjMJIvofaG9zBrnrydF3txoZzAxUqKWrqOTJ3A9FsMqv6KponswMyB/cqnILLnLpL5Y+FDeeeyP5DgA=")
+size_override = Vector2(117, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv1iq"]
+atlas = SubResource("PortableCompressedTexture2D_xxqia")
+region = Rect2(0, 0, 117, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lquwl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv1iq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_lquwl")
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -18,10 +52,100 @@ color = Color(0, 0, 0, 1)
 position = Vector2(3, 0)
 speed = 200
 
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(1, -3)
-
 [node name="BoxArea" type="Node2D" parent="."]
 script = ExtResource("2_0xm2m")
 
 [node name="HUD" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="PlayerStartPosition" type="Marker2D" parent="."]
+
+[node name="DeathballStartPosition" type="Marker2D" parent="."]
+position = Vector2(254, 236)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-9.53674e-07, 0)
+rotation = 3.11597
+
+[node name="Right" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-410.155, -313.111)
+rotation = 0.0250889
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Top" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-315.14, -213.239)
+rotation = 0.0268508
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Left" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-215.19, -307.614)
+rotation = 0.0273779
+shape = SubResource("RectangleShape2D_7mycd")
+
+[node name="Bot" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-310.643, -407.895)
+rotation = 0.0230888
+shape = SubResource("RectangleShape2D_272bh")
+
+[node name="Level1" type="Timer" parent="."]
+wait_time = 21.0
+one_shot = true
+autostart = true
+
+[node name="FirstBallTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="SecondBallTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="ShowTimeLeft" type="Label" parent="."]
+offset_left = 295.0
+offset_top = 110.0
+offset_right = 345.0
+offset_bottom = 160.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_lquwl")
+theme_override_font_sizes/font_size = 24
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="."]
+visible = false
+offset_left = 158.0
+offset_top = 330.0
+offset_right = 276.0
+offset_bottom = 347.0
+scale = Vector2(3, 3)
+focus_mode = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Restart"]
+texture_filter = 1
+position = Vector2(59.3333, 8.33334)
+scale = Vector2(1.00855, 1.15556)
+sprite_frames = SubResource("SpriteFrames_lquwl")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "res://Art/Menu/restart.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "b1d15ded719d04b7d4ea15187b0bdbf1"
+
+[connection signal="timeout" from="FirstBallTimer" to="." method="_on_time_between_scenes_timeout"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://ciss00igg21sr"]
+
+[ext_resource type="Script" uid="uid://cir7trm70qi2y" path="res://death_ball.gd" id="1_1fwx1"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_1fwx1"]
+_data = PackedByteArray("AAADAAUAAAABAAAAEAAAABAAAABUAAAAUklGRkwAAABXRUJQVlA4TD8AAAAvD8ADEA8w//M///Mf8GAaAGCSGe5Oc6d53C8cwX3cQiQRnTsi+h8Hd2pv8NOfbsnezMkyjWOb27Yv62SFAAAA")
+size_override = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21ib8"]
+atlas = SubResource("PortableCompressedTexture2D_1fwx1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b3hp0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21ib8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="DeathBall" type="CharacterBody2D"]
+script = ExtResource("1_1fwx1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, 0)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_b3hp0")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "res://Art/Player_sprites/Enemies/skull.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "8b87805bd620d4455e99466ed4754548"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-137, -64)
+polygon = PackedVector2Array(126, 43, 126, 40, 147, 40, 147, 43, 150, 43, 150, 46, 153, 46, 153, 49, 156, 49, 156, 73, 153, 73, 153, 76, 150, 76, 150, 79, 147, 79, 147, 82, 144, 82, 141, 85, 132, 85, 129, 82, 126, 82, 126, 79, 123, 79, 123, 76, 120, 76, 120, 73, 117, 73, 117, 49, 120, 49, 120, 46, 123, 46, 123, 43)

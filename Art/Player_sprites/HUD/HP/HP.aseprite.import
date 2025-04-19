@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://brqwvn03m204g"
+path="res://.godot/imported/HP.aseprite-45680e7939c8a85af5a4f9299f09cc11.res"
+
+[deps]
+
+source_file="res://Art/Player_sprites/HUD/HP/HP.aseprite"
+dest_files=["res://.godot/imported/HP.aseprite-45680e7939c8a85af5a4f9299f09cc11.res"]
+
+[params]
+

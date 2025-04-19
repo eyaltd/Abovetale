@@ -1,11 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpa67vjdcvao2"]
+[gd_scene load_steps=5 format=3 uid="uid://cpa67vjdcvao2"]
 
 [ext_resource type="Script" uid="uid://ce7k3833r0ehs" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://ctu6p4xkjae8t" path="res://Art/Player_sprites/soul.png" id="2_onrkg"]
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_4flbx"]
-custom_solver_bias = 0.617
-points = PackedVector2Array(31.3333, 16.6666, 31.3333, 22, 38, 28, 44.6667, 22, 44.6667, 16.6666, 42, 14, 38, 19.3333, 34, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("2_onrkg")
@@ -22,14 +18,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
 speed = 450
 metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-38, -21.3333)
-shape = SubResource("ConvexPolygonShape2D_4flbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -55,4 +47,14 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "3b4c8f515035d56324d8103c72d7037e"
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(-6, -8, -4, -8, -4, -7, -3, -7, -3, -6, -2, -6, -2, -4, 0, -4, 0, -6, 1, -6, 1, -7, 2, -7, 2, -8, 4, -8, 4, -7, 5, -7, 5, -6, 6, -6, 6, 0, 5, 0, 5, 1, 4, 1, 4, 2, 3, 2, 3, 3, 2, 3, 2, 4, 1, 4, 1, 5, 0, 5, 0, 6, -2, 6, -2, 5, -3, 5, -3, 4, -4, 4, -4, 3, -5, 3, -5, 2, -6, 2, -6, 1, -7, 1, -7, 0, -8, 0, -8, -6, -7, -6, -7, -7, -6, -7)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(-6, -8, -4, -8, -4, -7, -3, -7, -3, -6, -2, -6, -2, -4, 0, -4, 0, -6, 1, -6, 1, -7, 2, -7, 2, -8, 4, -8, 4, -7, 5, -7, 5, -6, 6, -6, 6, 0, 5, 0, 5, 1, 4, 1, 4, 2, 3, 2, 3, 3, 2, 3, 2, 4, 1, 4, 1, 5, 0, 5, 0, 6, -2, 6, -2, 5, -3, 5, -3, 4, -4, 4, -4, 3, -5, 3, -5, 2, -6, 2, -6, 1, -7, 1, -7, 0, -8, 0, -8, -6, -7, -6, -7, -7, -6, -7)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

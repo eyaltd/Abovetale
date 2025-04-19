@@ -1,6 +1,26 @@
-[gd_scene load_steps=18 format=4 uid="uid://bdx7no40aup66"]
+[gd_scene load_steps=22 format=4 uid="uid://bdx7no40aup66"]
 
 [ext_resource type="FontFile" uid="uid://280k3mrfv2jf" path="res://Font/8bitoperator_JVE/8bitoperator_jve.ttf" id="1_k5de2"]
+[ext_resource type="Script" uid="uid://bes4g11ktd67r" path="res://health_bar.gd" id="2_efote"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ne771"]
+_data = PackedByteArray("AAADAAUAAAABAAAARQAAACEAAACcAAAAUklGRpQAAABXRUJQVlA4TIcAAAAvRAAIABcw//M///MfKAVHsW23zXcve5EQCkFI0eWTCZK/1Dya7jaBiP5PgEvxJ80uaTZJtiiSFvKFjtRmqs1KdPlc6lv9FXdpXpP21eWc6Fu1nSPdwPeZpFNumqHK4YUBLwinJCAsXmtUiSpvVPYiPYRgu+huQ7WrshfpCtgHRyxDlaEz4DQA")
+size_override = Vector2(69, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxqia"]
+atlas = SubResource("PortableCompressedTexture2D_ne771")
+region = Rect2(0, 0, 69, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gv1iq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxqia")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_5xyro"]
 offsets = PackedFloat32Array(1)
@@ -103,49 +123,88 @@ animations = [{
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
+[node name="GameOver" type="Label" parent="."]
+visible = false
+offset_left = 158.0
+offset_top = 41.0
+offset_right = 226.0
+offset_bottom = 74.0
+scale = Vector2(5, 5)
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GameOver"]
+texture_filter = 1
+position = Vector2(34, 16.6)
+sprite_frames = SubResource("SpriteFrames_gv1iq")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "res://Art/Menu/game_over.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "911917a51bd3b3a7dfd5e267d22b0721"
+
 [node name="Name" type="Label" parent="."]
-offset_left = 35.0
-offset_top = 420.0
-offset_right = 89.0
-offset_bottom = 445.0
+anchors_preset = -1
+anchor_left = 0.055
+anchor_top = 0.778
+anchor_right = 0.139
+anchor_bottom = 0.824
+offset_left = -0.200001
+offset_top = -0.120026
+offset_right = 0.0399933
+offset_bottom = 0.039978
 theme_override_fonts/font = ExtResource("1_k5de2")
 theme_override_font_sizes/font_size = 24
 text = "Layem"
 
 [node name="Level" type="Label" parent="."]
-offset_left = 121.0
-offset_top = 420.0
-offset_right = 157.0
-offset_bottom = 445.0
+anchors_preset = -1
+anchor_left = 0.189
+anchor_top = 0.778
+anchor_right = 0.245
+anchor_bottom = 0.824
+offset_left = 0.0399933
+offset_top = -0.120026
+offset_right = 0.199997
+offset_bottom = 0.039978
 theme_override_fonts/font = ExtResource("1_k5de2")
 theme_override_font_sizes/font_size = 24
 text = "LV 1"
 
 [node name="HP" type="Label" parent="."]
 anchors_preset = -1
-anchor_left = 3.697
-anchor_top = 0.5
-anchor_right = 3.697
-anchor_bottom = 0.5
-offset_left = -2131.08
-offset_top = 150.0
-offset_right = -2106.08
-offset_bottom = 175.0
+anchor_left = 0.367
+anchor_top = 0.778
+anchor_right = 0.406
+anchor_bottom = 0.824
+offset_left = 0.119995
+offset_top = -0.120026
+offset_right = 0.159973
+offset_bottom = 0.039978
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_k5de2")
 theme_override_font_sizes/font_size = 24
 text = "HP"
 
 [node name="CurrentHp" type="Label" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -262.0
-offset_top = 150.0
-offset_right = -241.0
-offset_bottom = 175.0
+anchors_preset = -1
+anchor_left = 0.591
+anchor_top = 0.778
+anchor_right = 0.623
+anchor_bottom = 0.824
+offset_left = 5.75998
+offset_top = -0.119995
+offset_right = 6.27997
+offset_bottom = 0.0400085
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_k5de2")
@@ -153,47 +212,53 @@ theme_override_font_sizes/font_size = 24
 text = "20"
 
 [node name="Slash" type="Label" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -232.0
-offset_top = 150.0
-offset_right = -224.0
-offset_bottom = 173.0
+anchors_preset = -1
+anchor_left = 0.644
+anchor_top = 0.778
+anchor_right = 0.648
+anchor_bottom = 0.82
+offset_left = -4.16
+offset_top = 0.880005
+offset_right = 0.279999
+offset_bottom = 1.20001
 grow_horizontal = 0
 grow_vertical = 2
 text = "/"
 
 [node name="MaxHp" type="Label" parent="."]
 custom_minimum_size = Vector2(0, 23)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 105.0
-offset_top = 150.0
-offset_right = 126.0
-offset_bottom = 175.0
+anchors_preset = -1
+anchor_left = 0.664
+anchor_top = 0.778
+anchor_right = 0.697
+anchor_bottom = 0.824
+offset_left = -4.95999
+offset_top = -0.119995
+offset_right = -5.07999
+offset_bottom = 0.0400085
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_k5de2")
 theme_override_font_sizes/font_size = 24
 text = "20"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 265.0
-offset_top = 420.0
-offset_right = 365.0
-offset_bottom = 445.0
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 0.414
+anchor_top = 0.778
+anchor_right = 0.57
+anchor_bottom = 0.824
+offset_left = 0.039978
+offset_top = -0.120026
+offset_right = 0.199951
+offset_bottom = 0.039978
 max_value = 20.0
 value = 20.0
 texture_under = SubResource("GradientTexture2D_k5de2")
 texture_progress = SubResource("GradientTexture2D_vow1y")
 tint_under = Color(1, 0, 0, 1)
 tint_progress = Color(1, 1, 0, 1)
+script = ExtResource("2_efote")
 
 [node name="Fight" type="Button" parent="."]
 offset_left = 20.0
